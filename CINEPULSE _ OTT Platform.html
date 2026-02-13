@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:5500/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>CINEPULSE | OTT Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="./CINEPULSE _ OTT Platform_files/css2" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b0b12;
+  --card: #151528;
+  --neon-purple: #9b5cff;
+  --neon-blue: #00eaff;
+  --neon-pink: #ff4ecd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: #fff;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 24px;
+  color: var(--neon-purple);
+  text-shadow: 0 0 15px var(--neon-purple);
+  font-weight: 600;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav ul li:hover {
+  color: var(--neon-blue);
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2)),
+              url('https://images.unsplash.com/photo-1606112219348-204d7d8b94ee');
+  background-size: cover;
+  padding: 80px 40px;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero p {
+  max-width: 500px;
+  margin: 20px 0;
+  opacity: 0.9;
+}
+
+.btn {
+  padding: 12px 25px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  background: linear-gradient(45deg, var(--neon-purple), var(--neon-pink));
+  color: #fff;
+  box-shadow: 0 0 20px var(--neon-purple);
+  margin-right: 10px;
+}
+
+/* SECTIONS */
+section {
+  padding: 40px;
+}
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* MOVIE ROW */
+.movies {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.movie-card {
+  min-width: 180px;
+  background: var(--card);
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px var(--neon-blue);
+}
+
+.movie-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.movie-card p {
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: rgba(20,20,40,0.95);
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 30px var(--neon-purple);
+}
+
+/* ACCOUNT CENTER */
+.account {
+  display: none;
+  padding: 40px;
+}
+
+.account h2 {
+  margin-bottom: 20px;
+}
+
+.account-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 15px rgba(0,234,255,0.2);
+}
+
+/* AUTH */
+.auth {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  background: rgba(20,20,40,0.9);
+  padding: 40px;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 0 30px var(--neon-pink);
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: none;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">CINEPULSE</div>
+  <ul>
+    <li onclick="showHome()">Home</li>
+    <li onclick="showAccount()">Account</li>
+    <li onclick="showLogin()">Login</li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<div id="home" style="display: block;">
+  <div class="hero">
+    <h1>Experience Cinema Like Never Before</h1>
+    <p>Stream blockbuster movies, originals and series in stunning neon cinematic style.</p>
+    <button class="btn">▶ Play</button>
+    <button class="btn">＋ Watchlist</button>
+  </div>
+
+  <section>
+    <div class="section-title">Trending Now</div>
+    <div class="movies">
+      <div class="movie-card" onclick="openModal()">
+        <img src="./CINEPULSE _ OTT Platform_files/photo-1542204165-65bf26472b9b">
+        <p>Neon City</p>
+      </div>
+      <div class="movie-card" onclick="openModal()">
+        <img src="./CINEPULSE _ OTT Platform_files/photo-1517602302552-471fe67acf66">
+        <p>Cyber Rush</p>
+      </div>
+      <div class="movie-card" onclick="openModal()">
+        <img src="./CINEPULSE _ OTT Platform_files/photo-1497032628192-86f99bcd76bc">
+        <p>Dark Pulse</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ACCOUNT -->
+<div class="account" id="account" style="display: none;">
+  <h2>Account Center</h2>
+
+  <div class="account-card">
+    <strong>User:</strong> John Doe<br>
+    <strong>Email:</strong> john@email.com
+  </div>
+
+  <div class="account-card">
+    <strong>Subscription:</strong> Premium<br>
+    <strong>Billing:</strong> Monthly
+  </div>
+
+  <div class="account-card">
+    Watch History | Watchlist | Downloads
+  </div>
+
+  <button class="btn">Logout</button>
+</div>
+
+<!-- LOGIN -->
+<div class="auth" id="login" style="display: none;">
+  <div class="auth-box">
+    <h3>Login</h3>
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+    <button class="btn" onclick="showHome()">Login</button>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" style="display: none;">
+  <div class="modal-content">
+    <h3>Neon City</h3>
+    <p>Year: 2025 | Genre: Sci-Fi | Duration: 2h 10m</p>
+    <button class="btn">▶ Play</button>
+    <button class="btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<footer>
+  © 2026 CINEPULSE. All Rights Reserved.
+</footer>
+
+<script>
+function showAccount() {
+  home.style.display = "none";
+  login.style.display = "none";
+  account.style.display = "block";
+}
+
+function showHome() {
+  account.style.display = "none";
+  login.style.display = "none";
+  home.style.display = "block";
+}
+
+function showLogin() {
+  home.style.display = "none";
+  account.style.display = "none";
+  login.style.display = "flex";
+}
+
+function openModal() {
+  modal.style.display = "flex";
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+</script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
